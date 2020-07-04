@@ -21,7 +21,12 @@ public class EncryptUtil {
 
     private static final String KEY_ALGORITHM = "AES";
     private static final String DEFAULT_CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";//默认的加密算法
-    private static final String PASSWORD = "HUIYADANLI";
+
+    /**
+     * 密码
+     * 如果你要直接使用本类库,TODO 请修改此内容
+     */
+    private static final String PASSWORD = "f79d438038acf33397af71bef3610a72";
 
 
     /**
@@ -45,7 +50,7 @@ public class EncryptUtil {
             }
 
         } catch (Exception e) {
-            log.error("AES encrypt failed", e);
+            log.warn("AES encrypt failed", e);
             return content;
         }
 
@@ -72,7 +77,7 @@ public class EncryptUtil {
             byte[] result = cipher.doFinal(Base64.getDecoder().decode(content));
             return new String(result, "utf-8");
         } catch (Exception e) {
-            log.error("AES decrypt failed", e);
+            log.debug("AES decrypt failed", e);
             return null;
         }
     }

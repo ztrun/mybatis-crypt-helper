@@ -54,22 +54,21 @@ mybatis:
 写入时加密，查询时解密示例：
 
 ```xml
-<!-- select： 在 resultMap 或 SQL 中需要加密的字段上声明 `javaType="encrypt"` -->
-<resultMap id="BaseResultMap" type="user">
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="username" javaType="string" jdbcType="VARCHAR" property="username" />
-    <result column="password" javaType="crypt" jdbcType="VARCHAR" property="password" />
+<!-- select： 在 resultMap 中需要解密的字段上声明 `javaType="crypt"` -->
+<resultMap id="BaseResultMap" type="com.huiyadan.crypt.mybatis.User">
+    <id column="id" property="id" jdbcType="BIGINT"/>
+    <result column="name" javaType="string" jdbcType="VARCHAR" property="name"/>
+    <result column="phone" javaType="crypt" jdbcType="VARCHAR" property="phone"/>
 </resultMap>
 
-<!-- insert： 在 SQL 中需要加密的字段上声明 `javaType="crypt"` -->
-<insert id="insert" parameterType="user">
-    insert into user (id, username, password)
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password, javaType=crypt, jdbcType=VARCHAR})
+<!-- insert： 在 SQL 中需要加密的字段上声明 `javaType=crypt` -->
+<insert id="insert" parameterType="com.huiyadan.crypt.mybatis.User">
+    insert into user (id, name, phone) values (#{id}, #{name}, #{phone, javaType=crypt})
 </insert>
 
-<!-- update： 在 SQL 中需要加密的字段上声明 `javaType="crypt"` -->
-<update id="update" parameterType="user">
-    update user set password=#{password, javaType=crypt, jdbcType=VARCHAR} where id=#{id}
+<!-- update： 在 SQL 中需要加密的字段上声明 `javaType=crypt` -->
+<update id="update" parameterType="com.huiyadan.crypt.mybatis.User">
+    update user set phone=#{phone, javaType=crypt} where id=#{id}
 </update>
 ```
 
