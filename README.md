@@ -1,6 +1,15 @@
-# 利用 MyBatis 的 TypeHandler 对数据库字段进行加密
+# mybatis-crypt-helper
 
-## MyBatis 3.x 使用方法
+一种 MyBatis 下简便的数据库字段加解密方案，利用 TypeHandler 实现。
+
+这是一个可以使用的模板项目，实际使用中可以根据需求修改加解密逻辑。
+
+## 环境要求
+
+* MyBatis 3.x 
+* JDK 1.8
+
+## 使用方法
 
 ### Maven
 添加 Maven 依赖
