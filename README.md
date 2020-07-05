@@ -4,7 +4,7 @@
 
 这是一个可以使用的模板项目，实际使用中可以根据需求修改加解密逻辑。
 
-使用demo: [mybatis-crypt-helper-demo](https://github.com/Ztrun/mybatis-crypt-helper-demo)
+使用demo: [mybatis-crypt-helper-demo](https://github.com/ztrun/mybatis-crypt-helper-demo)
 
 ## 环境要求
 
